@@ -164,4 +164,61 @@
   .finalize-btn:hover {
     background-color: #e68a00;
   }
-  
+  /* Base chat bubble style */
+.chat-bubble {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  max-width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+/* Align chat bubbles to the left */
+.user-message,
+.ai-message {
+  align-self: flex-start;
+}
+
+/* Optional: Add spacing between avatar and text */
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Style for sender's name */
+.chat-sender {
+  font-weight: bold;
+  margin-bottom: 4px;
+  font-size: 14px;
+  text-align: left;
+}
+
+/* Style for message text */
+.chat-message {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0%;
+  text-align: left;
+}
+
+/* Additional tweaks to ensure alignment */
+.conversation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.review-image {
+  width: 70px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Optional: adds slightly rounded corners */
+  margin-top: 8px; /* Optional: spacing above the image */
+  object-fit: cover; /* Ensures the image is cropped nicely if needed */
+}
+

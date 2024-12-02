@@ -124,8 +124,8 @@ const Content = () => {
             date: "October 12, 2023",
             rating: 5,
             content:
-              "I wear this jacket every day at work and it's so comfortable. The fabric is too good for the price. My teammates are always asking where I bought it from.",
-            image: "/assests/images/jacket.png",
+              "Review: I wear this jacket every day at work and it's so comfortable. The fabric is too good for the price. My teammates are always asking where I bought it from.",
+            image: "/assests/images/image6.png",
           },
         };
         setSuggestedPrompt("What size should I wear?");
