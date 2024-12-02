@@ -1,0 +1,39 @@
+.sidebar {
+    width: 250px; /* Width of the sidebar */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #0f1b2a; /* Background color of the sidebar */
+    color: #d1d5db; /* Text color */
+    position: fixed; /* Keeps the sidebar fixed on the left */
+    top: 0;
+    left: 0;
+    transition: width 1s ease-in; /* Smooth transition when sidebar is opened/closed */
+    padding-top: var(--hui-navbar-height, 50px); /* Adjust based on your variable or use a static value */
+    padding-left: 64px; /* Padding for inner content */
+    padding-right: 32px; /* Padding for inner content */
+    box-sizing: border-box; /* Ensure padding does not affect width calculation */
+    border-radius: 0 40px 0 0; /* Rounded corners on top-right side */
+    opacity: 1; /* Fully visible */
+  }
+
+  /* Inner content of the sidebar */
+.sidebar-inner {
+    height: 100%; /* Full height */
+    width: 100%; /* Full width */
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+  }
+  
+  .logo {
+    width: 30px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  .logo-text {
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+  }
