@@ -80,7 +80,7 @@
   }
   
   .generate-look-btn {
-    background-color: #4caf50;
+    background-color: #ff9f1c;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -90,7 +90,7 @@
   }
   
   .generate-look-btn:hover {
-    background-color: #45a049;
+    background-color: #ff9f1c;
   }
   /* Suggested Prompt Section */
 .suggested-prompt-container {

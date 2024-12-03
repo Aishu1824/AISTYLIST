@@ -76,8 +76,31 @@ const Content = () => {
     "What do people like about the business formal jacket?"
   );
   const [showFinalizeButton, setShowFinalizeButton] = useState(false);
-
+  const [isTyping, setIsTyping] = useState(false); // New state for typing animation
   const navigate = useNavigate();
+
+  const typeAIResponse = (aiReply) => {
+    setIsTyping(false);
+    let index = 0;
+    const typedMessage = { ...aiReply, message: "" };
+
+    const typingInterval = setInterval(() => {
+      if (index < aiReply.message.length) {
+        typedMessage.message += aiReply.message[index];
+        setConversation((prev) => {
+          const updated = [...prev];
+          updated[updated.length - 1] = typedMessage; // Update the last message
+          return updated;
+        });
+        index++;
+      } else {
+        clearInterval(typingInterval);
+        if (aiReply.tags || aiReply.review) {
+          setConversation((prev) => [...prev, aiReply]); // Add complete reply if additional info exists
+        }
+      }
+    }, 50); // Adjust typing speed (in milliseconds)
+  };
 
   const handleSend = () => {
     const userMessage = suggestedPrompt;
@@ -92,7 +115,8 @@ const Content = () => {
       },
     ]);
 
-    // Simulate AI reply based on prompt
+    // Simulate a delay for loading
+    setIsTyping(true);
     setTimeout(() => {
       let aiReply;
       if (
@@ -160,8 +184,12 @@ const Content = () => {
         setSuggestedPrompt(""); // Clear the prompt
         setShowFinalizeButton(true); // Show finalize button
       }
-      setConversation((prev) => [...prev, aiReply]);
-    }, 1000);
+      setConversation((prev) => [
+        ...prev,
+        { ...aiReply, message: "" }, // Start with an empty message for typing animation
+      ]);
+      typeAIResponse(aiReply); // Type the AI response
+    }, 2000); // 2-second delay
   };
 
   return (
@@ -264,6 +292,20 @@ const Content = () => {
             </div>
           </div>
         ))}
+        {isTyping && (
+          <div className="chat-bubble ai-message">
+            <img
+              src="/assests/images/ai.svg"
+              alt="AI Stylist Typing"
+              className="chat-avatar"
+            />
+            <div className="typing-indicator">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Suggested Prompt Section */}
@@ -279,16 +321,14 @@ const Content = () => {
         </div>
       )}
 
-      {/* Finalize My Order Button */}
+      {/* Finalize My Look Button */}
       {showFinalizeButton && (
-        <div className="finalize-container">
-          <button
-            className="finalize-btn"
-            onClick={() => navigate("/finalpage")}
-          >
-            Finalize my order
-          </button>
-        </div>
+        <button
+          className="generate-look-btn"
+          onClick={() => navigate("/finalpage")}
+        >
+          Finalize my look
+        </button>
       )}
     </div>
   );
