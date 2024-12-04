@@ -61,17 +61,26 @@
     width: 70%;
     
     height: 70px;
-    pointer-events: none; 
+    /*pointer-events: none;*/
     border: 1px solid lightgray; 
     border-radius: 8px;
     padding: 10px;
     border-color: #8f969c;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    resize: both;
+    overflow: auto;
+    
+    
   }
 
   .user-input:focus {
     border-color: #4A90E2; 
+    
      
+  }
+  .user-input::placeholder {
+    color: black; /* Set placeholder text color to black */
+    font-family: Arial, Helvetica, sans-serif;
   }
   
 
@@ -89,6 +98,7 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s;
+    
   }
   
   .generate-btn:hover {
@@ -116,6 +126,7 @@
   .content-header {
     display: flex;
     align-items: center; /* Vertically center the logo and text */
+    flex-direction: row;
     gap: 10px; /* Add space between the logo and the text */
     margin-bottom: 20px;
   }
@@ -163,4 +174,17 @@
     line-height: 1.5;  /* Adjust line height for better readability */
   }
   
-  
+  .prompt-label {
+    font-size: 14px;
+    color: gray; /* Adjust text color */
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: -120px; /* Adjust as needed */
+  }
+  .prompt-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Space between label and textarea */
+    position: relative;
+  }

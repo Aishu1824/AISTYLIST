@@ -31,4 +31,8 @@
     object-fit: cover;            /* Ensures the images cover the available space in their container */
     border-radius: 8px;           /* Adds rounded corners to the images */
   }
-  
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+  }

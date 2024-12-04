@@ -1,71 +1,3 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import "./content3.css"; // Ensure this CSS file contains styles for layout and responsiveness
-
-// const Content = () => {
-//   const navigate = useNavigate();
-
-//   const handleGenerateLook = () => {
-//     navigate("/finalpage"); // Redirects to the chat page or final page
-//   };
-
-//   return (
-//     <div className="content-container">
-//       {/* Header Section */}
-//       <div className="content-header">
-//         <img src="/assests/images/ai.svg" alt="AI Stylist Logo" className="ai-logo" />
-//         <div className="block1">
-//           <p className="content-title2">AI Stylist</p>
-//           <p className="content-subtitle">
-//           I’ve selected two outfits for you to choose from based on your inputs, 
-//           available items, and customer reviews. People like these two looks when 
-//           it comes to working from the office.  </p>
-//         </div>
-//       </div>
-
-//       {/* Outfit Recommendation Section */}
-//       <div className="outfit-gallery">
-//         {/* Business Formal Outfit */}
-//         <div className="outfit-card">
-//         <h3 className="outfit-title">Business formal</h3>
-//           <img src="/assests/images/image4.png" alt="Business Formal" className="outfit-image" />
-          
-//           <p className="outfit-description">
-//             The business formal look embodies sophisticated professionalism. At the heart of this ensemble is a timeless
-//             and fitted pantsuit. Underneath the tailored jacket, is a classic button-down shirt to create an elegant pairing.
-//           </p>
-//         </div>
-
-//         {/* Business Casual Outfit */}
-//         <div className="outfit-card">
-//         <h3 className="outfit-title">Business casual</h3>
-//           <img src="/assests/images/image5.png" alt="Business Casual" className="outfit-image" />
-          
-//           <p className="outfit-description">
-//             Elevate your professional style with our carefully curated business casual look. The centerpiece of this
-//             look is a fitted blazer in a classic yet versatile color. Pair it with a silk blouse and tapered slacks.
-//           </p>
-//         </div>
-//       </div>
-
-//       {/* Generate Look Button */}
-      
-
-//       {/* Suggested Prompt Section */}
-//       <div className="suggested-prompt-container">
-//         <p className="suggested-prompt-label">Suggested prompt</p>
-//         <div className="suggested-prompt-box">
-//           <p className="suggested-prompt-text">
-//             What do people like about the business formal jacket?
-//           </p>
-//           <button className="send-prompt-btn">Send</button>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Content;
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./content3.css";
@@ -76,31 +8,9 @@ const Content = () => {
     "What do people like about the business formal jacket?"
   );
   const [showFinalizeButton, setShowFinalizeButton] = useState(false);
-  const [isTyping, setIsTyping] = useState(false); // New state for typing animation
+  const [loading, setLoading] = useState(false); // New state for loading
+
   const navigate = useNavigate();
-
-  const typeAIResponse = (aiReply) => {
-    setIsTyping(false);
-    let index = 0;
-    const typedMessage = { ...aiReply, message: "" };
-
-    const typingInterval = setInterval(() => {
-      if (index < aiReply.message.length) {
-        typedMessage.message += aiReply.message[index];
-        setConversation((prev) => {
-          const updated = [...prev];
-          updated[updated.length - 1] = typedMessage; // Update the last message
-          return updated;
-        });
-        index++;
-      } else {
-        clearInterval(typingInterval);
-        if (aiReply.tags || aiReply.review) {
-          setConversation((prev) => [...prev, aiReply]); // Add complete reply if additional info exists
-        }
-      }
-    }, 50); // Adjust typing speed (in milliseconds)
-  };
 
   const handleSend = () => {
     const userMessage = suggestedPrompt;
@@ -115,9 +25,12 @@ const Content = () => {
       },
     ]);
 
-    // Simulate a delay for loading
-    setIsTyping(true);
+    // Simulate loading
+    setLoading(true); // Show loading spinner
     setTimeout(() => {
+      setLoading(false); // Hide loading spinner after 2 seconds
+
+      // Simulate AI reply based on prompt
       let aiReply;
       if (
         suggestedPrompt ===
@@ -184,13 +97,12 @@ const Content = () => {
         setSuggestedPrompt(""); // Clear the prompt
         setShowFinalizeButton(true); // Show finalize button
       }
-      setConversation((prev) => [
-        ...prev,
-        { ...aiReply, message: "" }, // Start with an empty message for typing animation
-      ]);
-      typeAIResponse(aiReply); // Type the AI response
-    }, 2000); // 2-second delay
+      setConversation((prev) => [...prev, aiReply]);
+    }, 2000); // Delay the AI's reply by 2 seconds
   };
+
+  
+
 
   return (
     <div className="content-container">
@@ -292,20 +204,21 @@ const Content = () => {
             </div>
           </div>
         ))}
-        {isTyping && (
-          <div className="chat-bubble ai-message">
-            <img
-              src="/assests/images/ai.svg"
-              alt="AI Stylist Typing"
-              className="chat-avatar"
-            />
-            <div className="typing-indicator">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        )}
+
+        
+{/* Loading Animation */}
+{loading && (
+  <div className="loading-indicator">
+    <div className="dots-container">
+      <div className="dot"></div>
+      <div className="dot"></div>
+      <div className="dot"></div>
+    </div>
+  </div>
+)}
+
+
+        
       </div>
 
       {/* Suggested Prompt Section */}
@@ -321,14 +234,16 @@ const Content = () => {
         </div>
       )}
 
-      {/* Finalize My Look Button */}
+      {/* Finalize My Order Button */}
       {showFinalizeButton && (
-        <button
-          className="generate-look-btn"
-          onClick={() => navigate("/finalpage")}
-        >
-          Finalize my look
-        </button>
+        <div className="finalize-container">
+          <button
+            className="finalize-btn"
+            onClick={() => navigate("/finalpage")}
+          >
+            Finalize my order
+          </button>
+        </div>
       )}
     </div>
   );

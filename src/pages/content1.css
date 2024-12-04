@@ -62,4 +62,17 @@
     transform: scale(1.05);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
   }
+  @media (max-width: 768px) {
+    .image-gallery {
+      flex-direction: column; /* Stack images vertically on small screens */
+    }
+  
+    .image-gallery img {
+      width: 100%; /* Make images fit the container */
+    }
+  
+    .content-section {
+      width: 90%; /* Slightly increase width on smaller screens */
+    }
+  }
   
