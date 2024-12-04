@@ -61,12 +61,16 @@
     width: 70%;
     
     height: 70px;
-    pointer-events: none; 
+    /*pointer-events: none;*/
     border: 1px solid lightgray; 
     border-radius: 8px;
     padding: 10px;
     border-color: #8f969c;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    resize: both;
+    overflow: auto;
+    
+    
   }
 
   .user-input:focus {
@@ -74,6 +78,10 @@
      
   }
   
+  .user-input::placeholder {
+    color: black; /* Set placeholder text color to black */
+    font-family: Arial, Helvetica, sans-serif;
+  }
 
   
   .generate-btn {

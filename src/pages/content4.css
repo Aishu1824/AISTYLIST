@@ -1,9 +1,15 @@
-/* General container styles */
 .checkout-container {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+  text-align: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+  margin: 10px 300px;
+  width: 80%;
   }
   
   h1 {
@@ -28,16 +34,43 @@
   }
   .left-section{
     display: flex;
+    flex-direction: column;
+  align-items: flex-start;
   }
   
   .left-section .outfit-image {
     width: 250px;
     border-radius: 8px;
+    margin-bottom: 10px; /* Adds space between the image and items list */
   }
   
   .right-section {
+    
+    
     flex: 1;
   }
+
+  .outfit-image {
+    width: 100%; /* Image takes full width of its container */
+    max-width: 300px; /* Set a maximum width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners */
+  }
+  
+  /* For smaller laptop screens */
+  @media screen and (max-width: 1024px) {
+    .outfit-image {
+      max-width: 250px; /* Reduce max width for smaller screens */
+    }
+  }
+  
+  /* For larger laptop screens */
+  @media screen and (min-width: 1440px) {
+    .outfit-image {
+      max-width: 350px; /* Increase max width for larger screens */
+    }
+  }
+  
   
   .right-section h2 {
     font-size: 20px;
@@ -49,15 +82,27 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 10px; /* Space between items and the image */
+  padding-left: 0; /* Align items to start from the left */
+
+    justify-content: space-evenly;
   }
   
   .item {
     text-align: center;
+    display: flex;
+  flex-direction: column; /* Ensures image and text are stacked */
+  align-items: center; /* Centers items within their box */
+  width: 80px; /* Adjust width of each item */
+  text-align: center;
+  margin: 0; /* Removes extra spacing around items */
   }
   
   .item img {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border-radius: 4px;
   }
   
@@ -73,13 +118,17 @@
   
   /* Weather Section */
   .weather-section {
-    margin-top: -150px;
+    margin-top: -50px;
     padding: 20px;
-    border: 1px ;
+    border: 1px solid transparent;
     border-radius: 8px;
+    display: flex; /* Flexbox to align content horizontally */
+  flex-direction: column; /* Keeps content vertical */
+  align-items: flex-start; /* Centers the content horizontally */
   }
   
   .weather-section h3 {
+    text-align: left;
     font-size: 18px;
     margin-bottom: 10px;
   }
@@ -88,11 +137,17 @@
     font-size: 14px;
     margin-bottom: 20px;
     color: #666;
+    text-align: left; /* Aligns text to the center */
+  max-width: 600px; /* Ensures the paragraph doesn't stretch too wide */
   }
   
   .weather-forecast {
     display: flex;
+    flex-direction: row;
     gap: 20px;
+    justify-content: flex-start; /* Centers the forecast items */
+    flex-wrap: wrap; /* Makes items responsive on smaller screens */
+
   }
   
   .weather-item {
@@ -102,6 +157,8 @@
   
   .weather-icon {
     font-size: 24px;
+    width: 40px; /* Adjusts the icon size */
+  height: 40px;
   }
   
   /* Add to Order Section */
@@ -139,4 +196,16 @@
   .add-button:hover {
     background-color: #005bb5;
   }
+  @media (max-width: 768px) {
+    .checkout-container {
+      width: 90%;
+    }
   
+    .checkout-content > div {
+      flex: 1 1 100%;
+    }
+  
+    .weather-section {
+      margin-top: 10px;
+    }
+  }
