@@ -30,7 +30,7 @@ const Content = () => {
       {
         sender: "You",
         message: userMessage,
-        avatar: "/assests/images/chatlogo.svg",
+        avatar: "/assests/images/chatlogo.svg", // Corrected asset path
       },
     ]);
 
@@ -104,8 +104,6 @@ const Content = () => {
             "Done! I added the rest of the Business formal look to your cart. Based on your previous purchases, I pre-selected the sizes for you.",
           avatar: "/assests/images/ai.svg",
         };
-        
-       // setConversation((prev) => [...prev, aiReply]);
         setShowCartItems(true); // Show the cart items
         setSuggestedPrompt("");
         setShowFinalizeButton(true);
@@ -192,11 +190,6 @@ const Content = () => {
                   ))}
                 </div>
               )}
-              {chat.reviewsCount && (
-                <p className="reviews-count">
-                  {chat.reviewsCount} customer reviews
-                </p>
-              )}
               {chat.review && (
                 <div className="review-card">
                   <img
@@ -204,29 +197,31 @@ const Content = () => {
                     alt="Jacket"
                     className="review-image"
                   />
-                  <p className="review-title">
-                    <strong>{chat.review.name}</strong> -{" "}
-                    {chat.review.title} ({chat.review.date})
-                  </p>
-                  <p className="review-content">{chat.review.content}</p>
+                  <div className="review-text">
+                    <p className="review-title">
+                      <strong>{chat.review.name}</strong> - {chat.review.title}{" "}
+                      ({chat.review.date})
+                    </p>
+                    <p className="review-content">{chat.review.content}</p>
+                    <div className="star-rating">
+                      {[...Array(5)].map((_, i) => (
+                        <span
+                          key={i}
+                          className={`star ${
+                            i < chat.review.rating ? "star-filled" : "star-empty"
+                          }`}
+                        >
+                          &#9733;
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
           </div>
         ))}
-
-        {/* Loading Animation */}
-        {isLoading && (
-          <div className="loading-indicator">
-            <div className="dots-container">
-              <div className="dot"></div>
-              <div className="dot"></div>
-              <div className="dot"></div>
-            </div>
-          </div>
-        )}
-
-        <div ref={conversationEndRef} /> {/* Invisible div to scroll into view */}
+        <div ref={conversationEndRef} />
       </div>
 
       {/* Suggested Prompt Section */}
@@ -249,7 +244,6 @@ const Content = () => {
       {/* Display Cart Items */}
       {showCartItems && (
         <div className="cart-items-container">
-          
           <div className="cart-item">
             <img src="/assests/images/1.png" alt="Shirt" />
             <p>Shirt</p>
@@ -283,24 +277,21 @@ const Content = () => {
             <select defaultValue="One Size">
               <option>One Size</option>
             </select>
-
           </div>
-         
         </div>
-        
       )}
 
       {/* Display Finalize Checkout Text */}
-{showCartItems &&  (
-  <div className="checkout-text-container">
-    <p className="checkout-text">
-      Are you ready to checkout and finalize your order?
-    </p>
-  </div>
-)}
+      {showCartItems && (
+        <div className="checkout-text-container">
+          <p className="checkout-text">
+            Are you ready to checkout and finalize your order?
+          </p>
+        </div>
+      )}
+
       {/* Finalize Button */}
-       {/* Finalize My Order Button */}
-       {showFinalizeButton && (
+      {showFinalizeButton && (
         <div className="finalize-container">
           <button
             className="finalize-btn"
