@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../components/sidebar';
 import MainContent from '../components/maincontent';
 import Content from './content1';
-//import './HomePage.css'; // If you want specific page styles
+import './homepage.css'; // If you want specific page styles
 
 const HomePage = () => {
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./content3.css";
 
@@ -8,14 +8,23 @@ const Content = () => {
     "What do people like about the business formal jacket?"
   );
   const [showFinalizeButton, setShowFinalizeButton] = useState(false);
-  const [loading, setLoading] = useState(false); // New state for loading
+  const [isLoading, setIsLoading] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const [showCartItems, setShowCartItems] = useState(false);
 
   const navigate = useNavigate();
+  const conversationEndRef = useRef(null);
+
+  // Scroll to the bottom whenever conversation updates
+  useEffect(() => {
+    if (conversationEndRef.current) {
+      conversationEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [conversation]);
 
   const handleSend = () => {
     const userMessage = suggestedPrompt;
 
-    // Append user's message
     setConversation((prev) => [
       ...prev,
       {
@@ -25,12 +34,13 @@ const Content = () => {
       },
     ]);
 
-    // Simulate loading
-    setLoading(true); // Show loading spinner
-    setTimeout(() => {
-      setLoading(false); // Hide loading spinner after 2 seconds
+    setIsLoading(true);
+    setIsButtonDisabled(true);
 
-      // Simulate AI reply based on prompt
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsButtonDisabled(false);
+
       let aiReply;
       if (
         suggestedPrompt ===
@@ -94,15 +104,15 @@ const Content = () => {
             "Done! I added the rest of the Business formal look to your cart. Based on your previous purchases, I pre-selected the sizes for you.",
           avatar: "/assests/images/ai.svg",
         };
-        setSuggestedPrompt(""); // Clear the prompt
-        setShowFinalizeButton(true); // Show finalize button
+        
+       // setConversation((prev) => [...prev, aiReply]);
+        setShowCartItems(true); // Show the cart items
+        setSuggestedPrompt("");
+        setShowFinalizeButton(true);
       }
       setConversation((prev) => [...prev, aiReply]);
-    }, 2000); // Delay the AI's reply by 2 seconds
+    }, 2000);
   };
-
-  
-
 
   return (
     <div className="content-container">
@@ -176,9 +186,9 @@ const Content = () => {
               {chat.tags && (
                 <div className="tag-list">
                   {chat.tags.map((tag, idx) => (
-                    <span key={idx} className="tag">
+                    <div key={idx} className="tag">
                       {tag}
-                    </span>
+                    </div>
                   ))}
                 </div>
               )}
@@ -205,20 +215,18 @@ const Content = () => {
           </div>
         ))}
 
-        
-{/* Loading Animation */}
-{loading && (
-  <div className="loading-indicator">
-    <div className="dots-container">
-      <div className="dot"></div>
-      <div className="dot"></div>
-      <div className="dot"></div>
-    </div>
-  </div>
-)}
+        {/* Loading Animation */}
+        {isLoading && (
+          <div className="loading-indicator">
+            <div className="dots-container">
+              <div className="dot"></div>
+              <div className="dot"></div>
+              <div className="dot"></div>
+            </div>
+          </div>
+        )}
 
-
-        
+        <div ref={conversationEndRef} /> {/* Invisible div to scroll into view */}
       </div>
 
       {/* Suggested Prompt Section */}
@@ -227,15 +235,72 @@ const Content = () => {
           <p className="suggested-prompt-label">Suggested prompt</p>
           <div className="suggested-prompt-box">
             <p className="suggested-prompt-text">{suggestedPrompt}</p>
-            <button className="send-prompt-btn" onClick={handleSend}>
-              Send
+            <button
+              className="send-prompt-btn"
+              onClick={handleSend}
+              disabled={isButtonDisabled}
+            >
+              {isButtonDisabled ? "Sending..." : "Send"}
             </button>
           </div>
         </div>
       )}
 
-      {/* Finalize My Order Button */}
-      {showFinalizeButton && (
+      {/* Display Cart Items */}
+      {showCartItems && (
+        <div className="cart-items-container">
+          
+          <div className="cart-item">
+            <img src="/assests/images/1.png" alt="Shirt" />
+            <p>Shirt</p>
+            <select defaultValue="Medium">
+              <option>Small</option>
+              <option>Medium</option>
+              <option>Large</option>
+            </select>
+          </div>
+          <div className="cart-item">
+            <img src="/assests/images/2.png" alt="Shoes" />
+            <p>Shoes</p>
+            <select defaultValue="7">
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div className="cart-item">
+            <img src="/assests/images/3.png" alt="Pants" />
+            <p>Pants</p>
+            <select defaultValue="8">
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div className="cart-item">
+            <img src="/assests/images/4.png" alt="Tie" />
+            <p>Tie</p>
+            <select defaultValue="One Size">
+              <option>One Size</option>
+            </select>
+
+          </div>
+         
+        </div>
+        
+      )}
+
+      {/* Display Finalize Checkout Text */}
+{showCartItems &&  (
+  <div className="checkout-text-container">
+    <p className="checkout-text">
+      Are you ready to checkout and finalize your order?
+    </p>
+  </div>
+)}
+      {/* Finalize Button */}
+       {/* Finalize My Order Button */}
+       {showFinalizeButton && (
         <div className="finalize-container">
           <button
             className="finalize-btn"
