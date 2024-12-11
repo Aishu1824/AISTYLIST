@@ -41,3 +41,43 @@
     color: white;
   }
   
+  .features-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .features-list li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+  
+  .feature-title {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .info-icon {
+   font-family: Arial, Helvetica, sans-serif; /* Standard font for consistency */
+  font-size: 1.5rem;
+  color: #0f1b2a; /* Set a proper color */
+  /* background-color: #ff9900; Background color for aesthetic */
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect */
+  .info-icon:hover {
+    transform: scale(1.2); /* Slightly increase size on hover */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+  }
+  
+  /* Focus effect (for accessibility) */
+  .info-icon:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2); /* Focus ring */
+  }
+  

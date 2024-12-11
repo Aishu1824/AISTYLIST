@@ -1,0 +1,19 @@
+.arrow-back {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    color: #ffffff; /* Adjust as per your theme */
+    background-color: #0f1b2a; /* Background color for visibility */
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+  
+  .arrow-back:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+  }
+  

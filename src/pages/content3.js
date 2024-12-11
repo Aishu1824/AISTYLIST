@@ -81,16 +81,22 @@ const Content = () => {
       } else if (suggestedPrompt === "What size should I wear?") {
         aiReply = {
           sender: "AI Stylist",
-          message:
-            "Based on your previous purchases, I suggest ordering size M. The Business Blazer Jacket runs true to size.",
+          message:(
+            <span>
+            Based on your previous purchases, I suggest ordering size M. The <span className="light-blue-text"> Business Blazer Jacket </span> runs true to size.
+            </span>
+          ),
           avatar: "/assests/images/ai.svg",
         };
         setSuggestedPrompt("Add the jacket to my cart.");
       } else if (suggestedPrompt === "Add the jacket to my cart.") {
         aiReply = {
           sender: "AI Stylist",
-          message:
-            "Done! I added the Business Blazer Jacket to your cart. Based on previous purchases, I selected an M size for you.",
+          message: (
+            <span>
+              Done! I added the <span className="light-blue-text">Business Blazer Jacket</span> to <span className="light-blue-text">your cart</span>. Based on previous purchases, I selected an M size for you.
+            </span>
+          ),
           avatar: "/assests/images/ai.svg",
         };
         setSuggestedPrompt(
@@ -102,8 +108,11 @@ const Content = () => {
       ) {
         aiReply = {
           sender: "AI Stylist",
-          message:
-            "Done! I added the rest of the Business formal look to your cart. Based on your previous purchases, I pre-selected the sizes for you.",
+          message:(
+            <span>
+            Done! I added the rest of the Business formal look to <span className="light-blue-text">your cart</span>. Based on your previous purchases, I pre-selected the sizes for you.
+            </span>
+          ),
           avatar: "/assests/images/ai.svg",
         };
         
@@ -343,5 +352,6 @@ const Content = () => {
     </div>
   );
 };
+
 
 export default Content;

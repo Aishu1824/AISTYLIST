@@ -37,3 +37,34 @@
     padding-left: 10%;
     overflow-x: hidden; /* Prevent horizontal scrollbars */
   }
+
+  .back-arrow-container {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    
+    color: #161515; /* White arrow color */
+    border-radius: 50%; /* Makes it circular */
+    display: flex;
+    align-items: center; /* Center arrow vertically */
+    justify-content: center; /* Center arrow horizontally */
+    cursor: pointer;
+    
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    z-index: 1000;
+    padding-left: 27%;
+  }
+  
+  .back-arrow-container:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    
+  }
+  
+  .back-arrow-icon {
+    width: 30px;
+  height: 30px;
+  color: #242020;
+    
+  }
