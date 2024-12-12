@@ -222,7 +222,10 @@ const Content = () => {
                   <p className="review-content">{chat.review.content}</p>
                 </div>
               )} */}
-  {chat.review && (
+
+
+
+{chat.review && (
   <div className="review-card">
     <img
       src={chat.review.image}
@@ -233,8 +236,7 @@ const Content = () => {
       <p className="review-title">
         <strong>{chat.review.name}</strong> - {chat.review.title} ({chat.review.date})
       </p>
-      <p className="review-content">{chat.review.content}</p>
-      
+
       {/* 5 Star Rating */}
       <div className="star-rating">
         {[...Array(5)].map((_, i) => (
@@ -246,6 +248,8 @@ const Content = () => {
           </span>
         ))}
       </div>
+
+      <p className="review-content">{chat.review.content}</p>
     </div>
   </div>
 )}

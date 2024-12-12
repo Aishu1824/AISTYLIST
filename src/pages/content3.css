@@ -195,6 +195,8 @@
   line-height: 1.5; 
   font-weight: normal; /* Adjust line height for better readability */
 }
+
+
 .finalize-btn {
   display: flex;
   width: 100%;
@@ -210,9 +212,9 @@
   transition: background-color 0.3s;
 }
 
-.finalize-btn:hover {
+/* .finalize-btn:hover {
   background-color: #a9a6a1;
-}
+} */
 /* Base chat bubble style */
 .chat-bubble {
 display: flex;
@@ -367,19 +369,27 @@ font-weight: bold;
 margin-top: 10px;
 }
 
+.review-title {
+  margin-bottom: 5px; /* Adds space between title and stars */
+}
+
 .star-rating {
-margin-top: 10px;
-color: black; /* Color of the stars */
+  display: flex;
+  justify-content: flex-start; /* Align stars to the left */
+  margin-bottom: 10px; /* Adds spacing below stars */
 }
 
 .star {
-color: gold; /* Filled stars color */
-font-size: 25px;
+  color: rgb(19, 19, 18); /* Filled stars */
+  font-size: 23px; /* Adjust star size as needed */
+  margin-right: 2px; /* Space between stars */
 }
 
 .star-empty {
-color: lightgray; /* Empty stars color */
+  color: #ccc; /* Empty star color */
 }
+
+
 .tag-list {
   display: flex;
   gap: 8px;
