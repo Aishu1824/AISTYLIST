@@ -7,7 +7,7 @@ const Content = () => {
   const navigate = useNavigate();
 
   const handleStartNow = () => {
-    navigate("/nextpage"); // Redirects to the desired page
+    navigate("/nextpage"); 
   };
 
   return (

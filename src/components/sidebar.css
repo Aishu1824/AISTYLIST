@@ -1,24 +1,24 @@
 .sidebar {
-    width: 400px; /* Width of the sidebar */
-    height: 100vh; /* Full height of the viewport */
-    background-color: #0f1b2a; /* Background color of the sidebar */
-    color: #d1d5db; /* Text color */
-    position: fixed; /* Keeps the sidebar fixed on the left */
+    width: 400px; 
+    height: 100vh; 
+    background-color: #0f1b2a; 
+    color: #d1d5db; 
+    position: fixed; 
     top: 0;
     left: 0;
-    transition: width 1s ease-in; /* Smooth transition when sidebar is opened/closed */
-    padding-top: var(--hui-navbar-height, 50px); /* Adjust based on your variable or use a static value */
-    padding-left: 64px; /* Padding for inner content */
-    padding-right: 32px; /* Padding for inner content */
-    box-sizing: border-box; /* Ensure padding does not affect width calculation */
-    border-radius: 0 40px 0 0; /* Rounded corners on top-right side */
-    opacity: 1; /* Fully visible */
+    transition: width 1s ease-in; 
+    padding-top: var(--hui-navbar-height, 50px); 
+    padding-left: 64px; 
+    padding-right: 32px; 
+    box-sizing: border-box; 
+    border-radius: 0 40px 0 0; 
+    opacity: 1; 
   }
 
   /* Inner content of the sidebar */
 .sidebar-inner {
-    height: 100%; /* Full height */
-    width: 100%; /* Full width */
+    height: 100%; 
+    width: 100%; 
   }
   .logo-container {
     display: flex;
@@ -27,7 +27,7 @@
   }
   
   .logo {
-    width: 30px; /* Adjust size as needed */
+    width: 30px;
     height: auto;
     margin-right: 10px;
   }
@@ -59,10 +59,8 @@
   }
   
   .info-icon {
-   font-family: Arial, Helvetica, sans-serif; /* Standard font for consistency */
-  font-size: 1.5rem;
-  color: #0f1b2a; /* Set a proper color */
-  /* background-color: #ff9900; Background color for aesthetic */
+   font-family: Arial, Helvetica, sans-serif; 
+  color: #0f1b2a; 
   border-radius: 50%;
   padding: 5px;
   cursor: pointer;
@@ -71,13 +69,13 @@
   
   /* Hover effect */
   .info-icon:hover {
-    transform: scale(1.2); /* Slightly increase size on hover */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transform: scale(1.2); 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
   }
   
   /* Focus effect (for accessibility) */
   .info-icon:focus {
     outline: none;
-    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2); /* Focus ring */
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.2); 
   }
   

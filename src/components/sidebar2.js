@@ -1,5 +1,5 @@
 import React from 'react';
-import './sidebar.css'; // Include your custom CSS file
+import './sidebar.css'; 
 
 const Sidebar = () => {
   return (

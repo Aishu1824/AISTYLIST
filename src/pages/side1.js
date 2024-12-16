@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from './Sidebar';
-//import './side1.css'; // Optional CSS for the page
+
 
 
 const Page1 = () => {

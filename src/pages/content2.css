@@ -1,67 +1,29 @@
 .content-container {
     display: flex;
     flex-direction: column;
-  
     align-items: flex-start;
     text-align: center;
     background-color: #fff;
     padding: 10px;
     border-radius: 10px;
-    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
     margin: 10px 300px;
     width: 80%;
   }
   
-  /* .content-header {
-    margin-bottom: 20px;
-  } */
-  
-  /* .content-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #2c3e50;
-  }
-   */
-  /* .content-subtitle {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
-  } */
-  
-  /* .input-section {
-    margin: 20px 0;
-  }
-   */
    .input-section {
-    margin: 20px 0; /* Add spacing above and below the section */
-    display: flex; /* Use flexbox for alignment */
-    flex-direction: column; /* Stack child elements vertically */
-    align-items: stretch; /* Ensure the child elements stretch to fill the width */
-    width: 100%; /* Occupy the full width of the container */
-    padding: 10px; /* Add padding around the section */
-    box-sizing: border-box; /* Include padding and border in the element’s total width/height */
+    margin: 20px 0; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: stretch; 
+    width: 100%; 
+    padding: 10px; 
+    box-sizing: border-box; 
     gap: 20px;
 }
 
-  /* .user-input {
-    display: flex ;
-    width: 100%;
-    height: 80px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    color: black;
-    font-size: 14px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    resize: none;
-  } */
   .user-input {
     width: 70%;
-    
     height: 70px;
-    /*pointer-events: none;*/
     border: 1px solid lightgray; 
     border-radius: 8px;
     padding: 10px;
@@ -69,22 +31,17 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
     resize: both;
     overflow: auto;
-    
-    
   }
 
   .user-input:focus {
     border-color: #4A90E2; 
-    
-     
   }
+
   .user-input::placeholder {
-    color: black; /* Set placeholder text color to black */
+    color: black; 
     font-family: Arial, Helvetica, sans-serif;
   }
-  
 
-  
   .generate-btn {
     display: flex;
     width: 15%;
@@ -123,68 +80,57 @@
     transform: scale(1.05);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
   }
+  
   .content-header {
     display: flex;
-    align-items: center; /* Vertically center the logo and text */
+    align-items: center; 
     flex-direction: row;
-    gap: 10px; /* Add space between the logo and the text */
+    gap: 10px; 
     margin-bottom: 20px;
   }
   
   .ai-logo {
-    width: 40px; /* Adjust size of the logo */
-    height: 40px; /* Maintain consistent dimensions */
+    width: 40px; 
+    height: 40px; 
     padding-bottom: 4%;
   }
   
-  /* .content-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin: 1px; 
-  }
-  
-  .content-subtitle {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.5;
-    margin-top: 5px; 
-  } */
   .block1 {
-    text-align: left; /* Align text to the left */
-    margin: 0;        /* Remove any default margin */
-    padding-right: 400px;       /* Remove any default padding */
-    width: 100%;      /* Ensure it spans the full width of the container */
+    text-align: left; 
+    margin: 0;        
+    padding-right: 400px;       
+    width: 100%;     
     line-height: 1.6;
     font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;/* Improve readability with proper line spacing */
+    font-family: Arial, Helvetica, sans-serif;
   }
   
   .content-title1 {
-    font-size: 15px;   /* Adjust the title size */
-    font-weight: bold; /* Make the title bold */
-    margin-bottom: 10px; /* Add spacing below the title */
-    color: #2c3e50;    /* Darker shade for better contrast */
+    font-size: 15px;   
+    font-weight: bold;
+    margin-bottom: 10px; 
+    color: #2c3e50;    
   }
   
   .content-subtitle {
-    font-size: 16px;   /* Subtitle font size */
-    color: black;       /* Subtitle text color */
-    margin: 0;         /* Remove any default margin */
-    line-height: 1.5;  /* Adjust line height for better readability */
+    font-size: 16px;   
+    color: black;      
+    margin: 0;         
+    line-height: 1.5;  
   }
   
   .prompt-label {
     font-size: 14px;
-    color: gray; /* Adjust text color */
+    color: gray; 
     position: absolute;
-    top: 10px; /* Adjust as needed */
-    left: -120px; /* Adjust as needed */
+    top: 10px; 
+    left: -120px;
   }
+
   .prompt-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px; /* Space between label and textarea */
+    gap: 10px; 
     position: relative;
   }

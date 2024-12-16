@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./content4.css"; // Ensure the CSS file matches the styles
+import "./content4.css"; 
 
 const Content = () => {
   const [items, setItems] = useState([
@@ -36,7 +36,7 @@ const Content = () => {
         {/* Left Section */}
         <div className="left-section">
           <img
-            src="/assests/images/image4.png" // Replace with actual image URL
+            src="/assests/images/image4.png" 
             alt="Outfit preview"
             className="outfit-image"
           />

@@ -208,24 +208,7 @@ const Content = () => {
                   {chat.reviewsCount} customer reviews
                 </p>
               )}
-              {/* {chat.review && (
-                <div className="review-card">
-                  <img
-                    src={chat.review.image}
-                    alt="Jacket"
-                    className="review-image"
-                  />
-                  <p className="review-title">
-                    <strong>{chat.review.name}</strong> -{" "}
-                    {chat.review.title} ({chat.review.date})
-                  </p>
-                  <p className="review-content">{chat.review.content}</p>
-                </div>
-              )} */}
-
-
-
-{chat.review && (
+   {chat.review && (
   <div className="review-card">
     <img
       src={chat.review.image}

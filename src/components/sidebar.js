@@ -1,16 +1,12 @@
-
-// import React from 'react';
 import React, { useState, useEffect } from "react";
-
-import './sidebar.css'; // Include your custom CSS file
-
+import './sidebar.css'; 
 const Sidebar = () => {
   const [isSidebarVisible, setIsSidebarVisible] = useState(true);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
     // Monitor screen size
     useEffect(() => {
       const handleResize = () => {
-        setIsSmallScreen(window.innerWidth <= 768); // Toggle visibility for smaller screens
+        setIsSmallScreen(window.innerWidth <= 768); 
       };
   
       window.addEventListener("resize", handleResize);

@@ -10,22 +10,20 @@ const Content = () => {
 
     useEffect(() => {
       let index = 0;
-      const length = placeholderText.length; // Cache length for safety
+      const length = placeholderText.length; 
       const typingInterval = setInterval(() => {
         if (index < length) {
-          setTypedText(placeholderText.substring(0, index + 1)); // Use substring for precision
+          setTypedText(placeholderText.substring(0, index + 1)); 
           index++;
         } else {
-          clearInterval(typingInterval); // Stop interval once done
+          clearInterval(typingInterval); 
         }
       }, 50);
-    
-      // Cleanup interval on component unmount
-      return () => clearInterval(typingInterval);
+       return () => clearInterval(typingInterval);
     }, []);
     
   const handleGenerateLook = () => {
-    navigate("/chatpage"); // Redirects to the chat page
+    navigate("/chatpage"); 
   };
 
   return (
@@ -50,7 +48,7 @@ const Content = () => {
    
     <textarea
       className="user-input"
-      placeholder={typedText} // Dynamically update placeholder
+      placeholder={typedText} 
       readOnly
     ></textarea>
   </div>

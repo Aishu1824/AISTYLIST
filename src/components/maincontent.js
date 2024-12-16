@@ -1,18 +1,6 @@
-// import React from 'react';
-// import './maincontent.css'; // Main content specific CSS file
-
-// const MainContent = () => {
-//   return (
-//     <main className="main-content">
-//       {/* Empty Main Content */}
-//     </main>
-//   );
-// };
-
-// export default MainContent;
 import React from "react";
 import { useNavigate,useLocation } from "react-router-dom";
-import "./maincontent.css"; // Main content specific CSS file
+import "./maincontent.css"; 
 import HomePage from "../pages/homepage";
 
 const MainContent = () => {
@@ -20,10 +8,10 @@ const MainContent = () => {
   const location = useLocation();
 
   const handleBack = () => {
-    navigate(-1); // Navigate to the previous page
+    navigate(-1); 
   };
 
-  const hideArrowPaths = ["","/"]; // Add more paths as needed
+  const hideArrowPaths = ["","/"]; 
 
   return (
     <main className="main-content">
