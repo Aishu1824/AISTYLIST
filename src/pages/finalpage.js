@@ -1,14 +1,13 @@
 import React from 'react';
-import Sidebar from '../components/sidebar2';
+import Sidebar from '../components/newsidebar';
 import MainContent from '../components/maincontent';
 import Content from './content4';
 
 const FinalPage = () => {
   return (
     <div className="nextpage">
-      <div className="sidebar">
-        <Sidebar />
-      </div>
+      <Sidebar page="finalpage" />;
+      
       <div className="main-container">
         <MainContent />
         <Content />

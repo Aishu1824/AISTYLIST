@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from '../components/sidebar';
+import Sidebar from '../components/newsidebar';
 import MainContent from '../components/maincontent';
 import Content from './content1';
 import './homepage.css'; 
@@ -7,10 +7,8 @@ import './homepage.css';
 const HomePage = () => {
   return (
     <div className="homepage">
-      <div className="sidebar">
-      <Sidebar  />
-        
-      </div>
+      <Sidebar page="homepage" />;
+      
       <div className="main-container">
         <MainContent />
         <Content/>
